@@ -8,38 +8,42 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-	
+
 	<style>
+
+	 .hide{
+		 visibility: hidden;
+		 position: absolute;
+	 }
 		/* width */
 		::-webkit-scrollbar {
 		  width: 10px;
 		}
-		
+
 		/* Track */
 		::-webkit-scrollbar-track {
-		  background: wheat; 
+		  background: wheat;
 		}
-		 
+
 		/* Handle */
 		::-webkit-scrollbar-thumb {
-		  background: #3e441a; 
+		  background: #3e441a;
 		}
-		
+
 		/* Handle on hover */
 		::-webkit-scrollbar-thumb:hover {
-		  background: #2c3506; 
+		  background: #2c3506;
 		}
 	</style>
 
 	<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css" />
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
 </head>
-	<body style="font-family: Inter; background-color: #262A10">
+	<body style="font-family: Inter; background-color: #262A10" onload="loadXML()">
 
 		<!--==========================================================================================================================-->
 
 		<div class="container-fluid">
-
 			<nav class="navbar navbar-light">
 				<div class="container-fluid" >
 				  <span class="navbar-brand mb-0 h1" style="color: wheat;">The delayers (pty)</span>
@@ -51,10 +55,19 @@
 			<div class="row">
 				<div class="col-md-6">
 
-					<h1 style=" display: inline-block; font-size: 2rem; text-align: left;color: wheat; padding: 1vh 0vw 0vh 0vw;">System status: 
-						<span class="badge rounded-pill bg-success">Working</span>
-						<!-- <span class="badge badge rounded-pill bg-warning text-dark">Error</span> -->
-						<!-- <span class="badge badge rounded-pill bg-danger">Off</span> -->
+					<!-- <p style="color:wheat;">
+						:=START: <br>
+						:=MW2: <br>
+					</p> -->
+
+					<!-- <p id="fuck" style="color:wheat;">
+						overhere
+					</p> -->
+
+					<h1 style=" display: inline-block; font-size: 2rem; text-align: left;color: wheat; padding: 1vh 0vw 0vh 0vw;">System status:
+						<span class="statePillW badge rounded-pill bg-success">Working</span>
+						<!-- <span class="statePillE badge badge rounded-pill bg-warning text-dark">Error</span> -->
+						<span class="statePillO badge badge rounded-pill bg-danger">Off</span>
 					</h1>
 
 					<div class="space" style="height: 2%;"></div>
@@ -62,16 +75,16 @@
 					<div class="card" style="border-radius: 2rem;border-color: wheat; --bs-card-border-width: 30px; padding: 0%; ">
 						<div class="card-body" style="background: wheat; color: #262A10; padding: 0%;">
 							<h5 class="card-title">System overview</h5>
-							
+
 							<div class="row">
 
 								<div  class="col-md-12">
 									<a href="#tank1">
-										<div style =" text-align: center;"> 
-											<h6>Tank 1 at 10%</h6>
+										<div style =" text-align: center;">
+											<h6>Tank 1</h6>
 											<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="height: 30vh;width: 100%;">
 												<rect width="500" height="500" transform="matrix(-1 0 0 1 500 0)" fill="green"/>
-												<rect width="500" height="500" fill="wheat" style="height: 90%;"/>
+												<rect id ="t1" width="500" height="500" fill="wheat" style="height: 90%;"/>
 												<path d="M7.5 7.5V492.5" stroke="black" stroke-width="15" stroke-linecap="round"/>
 												<path d="M7.5 492.5H492.5" stroke="black" stroke-width="15" stroke-linecap="round"/>
 												<path d="M492.5 492.5V7.5" stroke="black" stroke-width="15" stroke-linecap="round"/>
@@ -84,30 +97,30 @@
 
 								<div  class="col-md-6">
 									<a href="#tank2">
-										<div style =" text-align: center;"> 
+										<div style =" text-align: center;">
 											<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="height: 30vh;width: 100%;">
 												<rect width="500" height="500" transform="matrix(-1 0 0 1 500 0)" fill="green"/>
-												<rect width="500" height="500" fill="wheat" style="height: 90%;"/>
+												<rect id="t2" width="500" height="500" fill="wheat" style="height: 90%;"/>
 												<path d="M7.5 7.5V492.5" stroke="black" stroke-width="15" stroke-linecap="round"/>
 												<path d="M7.5 492.5H492.5" stroke="black" stroke-width="15" stroke-linecap="round"/>
 												<path d="M492.5 492.5V7.5" stroke="black" stroke-width="15" stroke-linecap="round"/>
 											</svg>
-											<h6>Tank 2 at 10%</h6>
+											<h6>Tank 2</h6>
 										</div>
 									</a>
 								</div>
 
 								<div  class="col-md-6">
 									<a href="#tank3">
-										<div style =" text-align: center;"> 
+										<div style =" text-align: center;">
 											<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="height: 30vh;width: 100%;">
 												<rect width="500" height="500" transform="matrix(-1 0 0 1 500 0)" fill="green"/>
-												<rect width="500" height="500" fill="wheat" style="height: 90%;"/>
+												<rect id="t3" width="500" height="500" fill="wheat" style="height: 90%;"/>
 												<path d="M7.5 7.5V492.5" stroke="black" stroke-width="15" stroke-linecap="round"/>
 												<path d="M7.5 492.5H492.5" stroke="black" stroke-width="15" stroke-linecap="round"/>
 												<path d="M492.5 492.5V7.5" stroke="black" stroke-width="15" stroke-linecap="round"/>
 											</svg>
-											<h6>Tank 3 at 10%</h6>
+											<h6>Tank 3</h6>
 										</div>
 									</a>
 								</div>
@@ -118,19 +131,19 @@
 				<div class="space" style="height: 70px;"></div>
 
 				</div>
-				
+
 
 				<div class="col-md-6" style=" padding: 1vh 2vw 1vh 2vw; overflow-y: scroll; height: 94.7vh ;"> <!-- change margin and height for overflow when you get to PHONE AND TABLET size -->
-					
-					
+
+
 					<div id="tank1" class="card" style="border-radius: 2rem;border-color: wheat; --bs-card-border-width: 30px; padding: 0%; ">
 						<div class="card-body" style="background: wheat;color: #262A10; padding: 0%;">
-							
+
 							<h5 class="card-title">Tank 1</h5>
-							<p class="card-text">Capacity filled: % <br> Status: </p>
+							<!-- <p class="card-text">Capacity filled: % <br> Status: </p> -->
 
 							<div class="row">
-					
+
 								<div class="col-lg-12">
 									<canvas id="tnkLvl1" style="width:100%; max-width:800px; margin: 0% 0% 1% 0%; height: 20vh; "></canvas>
 								</div>
@@ -165,12 +178,12 @@
 
 					<div id="tank2" class="card" style="border-radius: 2rem;border-color: wheat; --bs-card-border-width: 30px; padding: 0%; ">
 						<div class="card-body" style="background: wheat;color: #262A10; padding: 0%;">
-							
+
 							<h5 class="card-title">Tank 2</h5>
-							<p class="card-text">Capacity filled: % <br> Status: </p>
+							<!-- <p class="card-text">Capacity filled: % <br> Status: </p> -->
 
 							<div class="row">
-					
+
 								<div class="col-lg-12">
 									<canvas id="tnkLvl2" style="width:100%; max-width:800px; margin: 0% 0% 1% 0%; height: 20vh; "></canvas>
 								</div>
@@ -196,12 +209,12 @@
 
 					<div class="card" style="border-radius: 2rem;border-color: wheat; --bs-card-border-width: 30px; padding: 0%; ">
 						<div class="card-body" style="background: wheat;color: #262A10; padding: 0%;">
-							
+
 							<h5 class="card-title">Tank 3</h5>
-							<p class="card-text">Capacity filled: % <br> Status: </p>
+							<!-- <p class="card-text">Capacity filled: % <br> Status: </p> -->
 
 							<div class="row">
-					
+
 								<div class="col-lg-12">
 									<canvas id="tnkLvl3" style="width:100%; max-width:800px; margin: 0% 0% 1% 0%; height: 20vh; "></canvas>
 								</div>
@@ -226,27 +239,40 @@
 		</div>
 
 		<!--==========================================================================================================================-->
-		
+
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 		<script>
 			var xValues = [10,20,30,40,50,60];
+			var num = 0;
+
+			if(:=START: == 0){
+				console.log("your oof")
+					document.getElementsByClassName("statePillW")[0].setAttribute("class", "hide");
+
+			}else {
+				console.log("your on");
+				document.getElementsByClassName("statePillO")[0].setAttribute("class", "hide");
+			}
 
 
 
 			const skipped = (ctx, value) => ctx.p0.skip || ctx.p1.skip ? value : undefined;
-			
-			new Chart("tnkLvl1", {
+
+			t1C = new Chart("tnkLvl1", {
 			  type: "line",
 
 			  data: {
 				labels: xValues,
-				
-				datasets: [{ 
+
+				datasets: [{
 				  label: "Tank fill capacity",
-				  data: [100,80,50,NaN,25,10],
+				  data: [100,80,50,NaN,25,num],
 				  borderColor: "green",
 				  segment: {
-						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'), 
+						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'),
 						borderDash: ctx => skipped(ctx, [6, 6]),
 					},
 				  spanGaps: true,
@@ -256,6 +282,12 @@
 			  },
 
 			  options: {
+					scales: {
+					 y: {
+							 suggestedMin: 0,
+							 suggestedMax: 100
+					 },
+			 },
 				plugins: {
 					legend: {
 						display: true,
@@ -264,76 +296,18 @@
 			  }
 			});
 
-			new Chart("tnkLvl2", {
+			t1T = new Chart("tnkTemp1", {
 			  type: "line",
 
 			  data: {
 				labels: xValues,
-				
-				datasets: [{ 
-				  label: "Tank fill capacity",
+
+				datasets: [{
+				  label: "Tank temp",
 				  data: [100,50,10,NaN,25,50],
-				  borderColor: "green",
-				  segment: {
-						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'), 
-						borderDash: ctx => skipped(ctx, [6, 6]),
-					},
-				  spanGaps: true,
-				  fill: false,
-				  tension: 0.4
-				}]
-			  },
-
-			  options: {
-				plugins: {
-					legend: {
-						display: true,
-					}
-				}
-			  }
-			});
-
-			new Chart("tnkLvl3", {
-			  type: "line",
-
-			  data: {
-				labels: xValues,
-				
-				datasets: [{ 
-				  label: "Tank fill capacity",
-				  data: [55,22,90,NaN,100,30],
-				  borderColor: "green",
-				  segment: {
-						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'), 
-						borderDash: ctx => skipped(ctx, [6, 6]),
-					},
-				  spanGaps: true,
-				  fill: false,
-				  tension: 0.4
-				}]
-			  },
-
-			  options: {
-				plugins: {
-					legend: {
-						display: true,
-					}
-				}
-			  }
-			});
-
-			new Chart("tnkTemp1", {
-			  type: "line",
-
-			  data: {
-				labels: xValues,
-				
-				datasets: [{ 
-				  label: "Tank Temp",
-				  data: [100,100,58,NaN,70,25],
 				  borderColor: "red",
 				  segment: {
-						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'), 
+						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'),
 						borderDash: ctx => skipped(ctx, [6, 6]),
 					},
 				  spanGaps: true,
@@ -343,6 +317,12 @@
 			  },
 
 			  options: {
+					scales: {
+					 y: {
+							 suggestedMin: 0,
+							 suggestedMax: 100
+					 },
+			 },
 				plugins: {
 					legend: {
 						display: true,
@@ -351,18 +331,88 @@
 			  }
 			});
 
-			new Chart("tnkTemp2", {
+			t1M = new Chart("flowSpeed1", {
 			  type: "line",
 
 			  data: {
 				labels: xValues,
-				
-				datasets: [{ 
+
+				datasets: [{
+				  label: "Moter speed",
+				  data: [55,22,90,NaN,100,30],
+				  borderColor: "orange",
+				  segment: {
+						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'),
+						borderDash: ctx => skipped(ctx, [6, 6]),
+					},
+				  spanGaps: true,
+				  fill: false,
+				  tension: 0.4
+				}]
+			  },
+
+			  options: {
+					scales: {
+					 y: {
+							 suggestedMin: 0,
+							 suggestedMax: 100
+					 },
+			 },
+				plugins: {
+					legend: {
+						display: true,
+					}
+				}
+			  }
+			});
+
+			t2C = new Chart("tnkLvl2", {
+			  type: "line",
+
+			  data: {
+				labels: xValues,
+
+				datasets: [{
+				  label: "Tank fill capacity",
+				  data: [100,100,58,NaN,70,25],
+				  borderColor: "green",
+				  segment: {
+						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'),
+						borderDash: ctx => skipped(ctx, [6, 6]),
+					},
+				  spanGaps: true,
+				  fill: false,
+				  tension: 0.4
+				}]
+			  },
+
+			  options: {
+					scales: {
+					 y: {
+							 suggestedMin: 0,
+							 suggestedMax: 100
+					 },
+			 },
+				plugins: {
+					legend: {
+						display: true,
+					}
+				}
+			  }
+			});
+
+			t2T =new Chart("tnkTemp2", {
+			  type: "line",
+
+			  data: {
+				labels: xValues,
+
+				datasets: [{
 				  label: "Tank Temp",
 				  data: [10,11,10,NaN,1,25],
 				  borderColor: "red",
 				  segment: {
-						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'), 
+						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'),
 						borderDash: ctx => skipped(ctx, [6, 6]),
 					},
 				  spanGaps: true,
@@ -372,6 +422,12 @@
 			  },
 
 			  options: {
+					scales: {
+					 y: {
+							 suggestedMin: 0,
+							 suggestedMax: 100
+					 },
+			 },
 				plugins: {
 					legend: {
 						display: true,
@@ -380,18 +436,88 @@
 			  }
 			});
 
-			new Chart("tnkTemp3", {
+			t2M = new Chart("flowSpeed2", {
 			  type: "line",
 
 			  data: {
 				labels: xValues,
-				
-				datasets: [{ 
-				  label: "Tank Temp",
+
+				datasets: [{
+				  label: "moter speed",
 				  data: [25,11,60,NaN,100,20],
+				  borderColor: "orange",
+				  segment: {
+						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'),
+						borderDash: ctx => skipped(ctx, [6, 6]),
+					},
+				  spanGaps: true,
+				  fill: false,
+				  tension: 0.4
+				}]
+			  },
+
+			  options: {
+					scales: {
+					 y: {
+							 suggestedMin: 0,
+							 suggestedMax: 100
+					 },
+			 },
+				plugins: {
+					legend: {
+						display: true,
+					}
+				}
+			  }
+			});
+
+			t3C = new Chart("tnkLvl3", {
+			  type: "line",
+
+			  data: {
+				labels: xValues,
+
+				datasets: [{
+				  label: "Tank fill capacity",
+				  data: [86,14,100,NaN,60,20],
+				  borderColor: "green",
+				  segment: {
+						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'),
+						borderDash: ctx => skipped(ctx, [6, 6]),
+					},
+				  spanGaps: true,
+				  fill: false,
+				  tension: 0.4
+				}]
+			  },
+
+			  options: {
+					scales: {
+					 y: {
+							 suggestedMin: 0,
+							 suggestedMax: 100
+					 },
+			 },
+				plugins: {
+					legend: {
+						display: true,
+					}
+				}
+			  }
+			});
+
+			t3T = new Chart("tnkTemp3", {
+			  type: "line",
+
+			  data: {
+				labels: xValues,
+
+				datasets: [{
+				  label: "Tank temp",
+				  data: [60,10,100,NaN,100,0],
 				  borderColor: "red",
 				  segment: {
-						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'), 
+						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'),
 						borderDash: ctx => skipped(ctx, [6, 6]),
 					},
 				  spanGaps: true,
@@ -401,6 +527,12 @@
 			  },
 
 			  options: {
+					scales: {
+					 y: {
+							 suggestedMin: 0,
+							 suggestedMax: 100
+					 },
+			 },
 				plugins: {
 					legend: {
 						display: true,
@@ -409,76 +541,18 @@
 			  }
 			});
 
-			new Chart("flowSpeed1", {
+			t3M =new Chart("flowSpeed3", {
 			  type: "line",
 
 			  data: {
 				labels: xValues,
-				
-				datasets: [{ 
-				  label: "Motor speed",
-				  data: [86,14,100,NaN,60,20],
-				  borderColor: "orange",
-				  segment: {
-						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'), 
-						borderDash: ctx => skipped(ctx, [6, 6]),
-					},
-				  spanGaps: true,
-				  fill: false,
-				  tension: 0.4
-				}]
-			  },
 
-			  options: {
-				plugins: {
-					legend: {
-						display: true,
-					}
-				}
-			  }
-			});
-
-			new Chart("flowSpeed2", {
-			  type: "line",
-
-			  data: {
-				labels: xValues,
-				
-				datasets: [{ 
-				  label: "Motor speed",
-				  data: [60,10,100,NaN,100,0],
-				  borderColor: "orange",
-				  segment: {
-						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'), 
-						borderDash: ctx => skipped(ctx, [6, 6]),
-					},
-				  spanGaps: true,
-				  fill: false,
-				  tension: 0.4
-				}]
-			  },
-
-			  options: {
-				plugins: {
-					legend: {
-						display: true,
-					}
-				}
-			  }
-			});
-
-			new Chart("flowSpeed3", {
-			  type: "line",
-
-			  data: {
-				labels: xValues,
-				
-				datasets: [{ 
+				datasets: [{
 				  label: "Motor speed",
 				  data: [60,11,60,NaN,100,20],
 				  borderColor: "orange",
 				  segment: {
-						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'), 
+						borderColor: ctx => skipped(ctx, 'rgb(0,0,0,0.2)'),
 						borderDash: ctx => skipped(ctx, [6, 6]),
 					},
 				  spanGaps: true,
@@ -488,6 +562,12 @@
 			  },
 
 			  options: {
+					scales: {
+					 y: {
+							 suggestedMin: 0,
+							 suggestedMax: 100
+					 },
+			 },
 				plugins: {
 					legend: {
 						display: true,
@@ -495,7 +575,90 @@
 				}
 			  }
 			});
+
+			function loadXML(){
+
+				var xmlhttp;
+
+				if (window.XMLHttpRequest){
+					xmlhttp = new XMLHttpRequest();
+				}else {
+						xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+
+				xmlhttp.onreadystatechange = function(){
+
+					if(xmlhttp.readyState==4 && xmlhttp.status==200){
+						// document.getElementById("fuck").innerHTML = xmlhttp.responseText;
+						num = xmlhttp.responseText
+					}
+				}
+
+				xmlhttp.open("GET","DB.xml",true);
+				xmlhttp.send();
+				setTimeout('loadXML()',200);
+			}
+
+					setInterval(function (){
+
+						t1C.data.datasets[0].data.shift();
+						t1C.data.datasets[0].data.push(num);
+						// t1C.data.datasets[0].data = t1C.data.datasets[0].data;
+				    t1C.update();
+
+						t1T.data.datasets[0].data.shift();
+						t1T.data.datasets[0].data.push(num);
+						// t1T.data.datasets[0].data = t1C.data.datasets[0].data;
+				    t1T.update();
+
+						t1M.data.datasets[0].data.shift();
+						t1M.data.datasets[0].data.push(num);
+						// t1M.data.datasets[0].data = t1C.data.datasets[0].data;
+				    t1M.update();
+
+						// =====================================================
+
+						t2C.data.datasets[0].data.shift();
+						t2C.data.datasets[0].data.push(num);
+						// t2C.data.datasets[0].data = t1C.data.datasets[0].data;
+						t2C.update();
+
+						t2T.data.datasets[0].data.shift();
+						t2T.data.datasets[0].data.push(num);
+						// t2T.data.datasets[0].data = t1C.data.datasets[0].data;
+						t2T.update();
+
+						t2M.data.datasets[0].data.shift();
+						t2M.data.datasets[0].data.push(num);
+						// t2M.data.datasets[0].data = t1C.data.datasets[0].data;
+						t2M.update();
+
+						//====================================================
+
+						t3C.data.datasets[0].data.shift();
+						t3C.data.datasets[0].data.push(num);
+						// t3C.data.datasets[0].data = t1C.data.datasets[0].data;
+						t3C.update();
+
+						t3T.data.datasets[0].data.shift();
+						t3T.data.datasets[0].data.push(num);
+						// t3T.data.datasets[0].data = t1C.data.datasets[0].data;
+						t3T.update();
+
+						t3M.data.datasets[0].data.shift();
+						t3M.data.datasets[0].data.push(num);
+						// t3M.data.datasets[0].data = t1C.data.datasets[0].data;
+						t3M.update();
+
+						var actual = (100 - num).toString() + "%"
+						// console.log(actual);
+						document.getElementById("t1").style["height"] = actual;
+						document.getElementById("t2").style["height"] = actual;
+						document.getElementById("t3").style["height"] = actual;
+
+
+					}, 1000);
+
 			</script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 	</body>
 </html>
